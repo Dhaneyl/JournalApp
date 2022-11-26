@@ -13,8 +13,8 @@ import { useForm } from '../../hooks'
 //? Form Data
 const formData = {
   displayName: '',
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 }
 
 //? Validation var
@@ -73,7 +73,7 @@ export const RegisterPage = () => {
             name='displayName'
             value={displayName}
             onChange={onInputChange}
-            error={!!displayNameValid}
+            error={!!displayNameValid && formSubmitted}
             helperText= {displayNameValid } 
           />
         </Grid>
@@ -100,7 +100,7 @@ export const RegisterPage = () => {
             name='password'
             value={password}
             onChange={onInputChange}
-            error={!!passwordValid}
+            error={!!passwordValid && formSubmitted}
             helperText= {passwordValid } 
           />
         </Grid>
@@ -119,7 +119,8 @@ export const RegisterPage = () => {
           <Button 
           disabled ={ isCheckingAuthentication  }
           variant='contained' 
-          fullWidth type='submit'>
+          fullWidth 
+          type='submit'>
             Create Account
           </Button>
           </Grid>

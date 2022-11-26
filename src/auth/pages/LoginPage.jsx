@@ -5,19 +5,19 @@ import { Link as routerLink } from "react-router-dom";
 import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout";
 import { useForm } from "../../hooks";
-import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks";
+import {  startGoogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks";
 
-
+const formData = {
+  email: '',
+  password: ''
+}
 
 export const LoginPage = () => {
 
   const { status, errorMessage } = useSelector( state => state.auth );
   
   const dispatch = useDispatch();
-  const { email, password, onInputChange } = useForm({
-    email: '',
-    password: '',
-  });
+  const { email, password, onInputChange } = useForm( formData);
 
   //useMemo
   //This way you can configure your app for not having many auth from the same email

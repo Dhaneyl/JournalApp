@@ -8,6 +8,13 @@ export const useForm = ( initialForm = {}, formValidations ={} ) => {
     useEffect(() => {
         createValidators();
     }, [formState]);
+    
+    // To change the form when a note is selected
+    useEffect(() => {
+      setFormState( initialForm );
+      
+    }, [ initialForm ])
+    
 
     const isFormValid = useMemo( () =>{
 
